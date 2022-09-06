@@ -78,7 +78,7 @@ namespace KPBIN_Renderer
             List<int> height = new List<int>();
 
             int rowCount = (int)Math.Ceiling(layerVisibilities.Length / (float)rowLength);
-            Console.WriteLine("Total rows: " + rowCount);
+            //Console.WriteLine("Total rows: " + rowCount);
 
             for (int dtID = 0; dtID < layerVisibilities.Length; dtID += rowLength)
             {
@@ -135,7 +135,7 @@ namespace KPBIN_Renderer
 
             layerVisibilities[dataID][1] = value;
 
-            Console.WriteLine("Value " + value + " for VValue " + dataID.ToString("D2"));
+            //Console.WriteLine("Value " + value + " for VValue " + dataID.ToString("D2"));
         }
     }
 }

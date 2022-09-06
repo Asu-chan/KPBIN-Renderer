@@ -116,7 +116,7 @@ namespace KPBIN_Renderer
             List<int> height = new List<int>();
 
             int rowCount = (int)Math.Ceiling(udatas.Length / (float)rowLength);
-            Console.WriteLine("Total rows: " + rowCount);
+            //Console.WriteLine("Total rows: " + rowCount);
 
             for (int dtID = 0; dtID < udatas.Length; dtID += rowLength)
             {
@@ -178,7 +178,7 @@ namespace KPBIN_Renderer
                 if(udatas[datsID][0] == world && udatas[datsID][1] == level)
                     udatas[datsID][3] = value;
 
-            Console.WriteLine("Value " + value + " for NValue " + world.ToString("D2") + "-" + level.ToString("D2"));
+            //Console.WriteLine("Value " + value + " for NValue " + world.ToString("D2") + "-" + level.ToString("D2"));
         }
 
         private void secretCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -193,7 +193,7 @@ namespace KPBIN_Renderer
                 if (udatas[datsID][0] == world && udatas[datsID][1] == level)
                     udatas[datsID][((udatas[datsID][2] == 2) ? 4 : 3)] = value;
 
-            Console.WriteLine("Value " + value + " for SValue " + world.ToString("D2") + "-" + level.ToString("D2"));
+            //Console.WriteLine("Value " + value + " for SValue " + world.ToString("D2") + "-" + level.ToString("D2"));
         }
 
         private void comparisonNumUpDown_ValueChanged(object sender, EventArgs e)
@@ -208,7 +208,7 @@ namespace KPBIN_Renderer
                 if (udatas[datsID][0] == spByte && udatas[datsID][1] == specialID)
                     udatas[datsID][2] = value;
 
-            Console.WriteLine("Value " + value + " for SPValue " + specialID);
+            //Console.WriteLine("Value " + value + " for SPValue " + specialID);
         }
     }
     public static class ControlExtensions
