@@ -1120,28 +1120,36 @@ namespace KPBIN_Renderer
                     }
                 }
             }
-            int maxIdx = sectorIndexes.Max() + 1;
-            Console.WriteLine("  " + maxIdx + " sectors found:");
-            Console.Write("    ");
-            consolePosL = Console.CursorLeft;
-            consolePosT = Console.CursorTop;
-            for (int i = 0; i < maxIdx; i++) {
-                ushort[,] sector = new ushort[16,16];
 
-                for (int y = 0; y < 16; y++) {
-                    for (int x = 0; x < 16; x++)
+            if (sectorIndexes.Count > 0)
+            {
+                int maxIdx = sectorIndexes.Max() + 1;
+                Console.WriteLine("  " + maxIdx + " sectors found:");
+                Console.Write("    ");
+                consolePosL = Console.CursorLeft;
+                consolePosT = Console.CursorTop;
+                for (int i = 0; i < maxIdx; i++)
+                {
+                    ushort[,] sector = new ushort[16, 16];
+
+                    for (int y = 0; y < 16; y++)
                     {
-                        sector[x,y] = data.GetUInt16((int)(sectorsTableOffs + (((x * 16) + y) * 2)));
+                        for (int x = 0; x < 16; x++)
+                        {
+                            sector[x, y] = data.GetUInt16((int)(sectorsTableOffs + (((x * 16) + y) * 2)));
+                        }
                     }
+
+                    sectorsTableOffs += 0x200;
+
+                    sectors.Add(sector);
+
+                    Console.SetCursorPosition(consolePosL, consolePosT);
+                    Console.WriteLine((i + 1) + "/" + maxIdx);
                 }
-
-                sectorsTableOffs += 0x200;
-
-                sectors.Add(sector);
-
-                Console.SetCursorPosition(consolePosL, consolePosT);
-                Console.WriteLine((i + 1) + "/" + maxIdx);
             }
+            else
+                Console.WriteLine("  no sectors found.");
 
 
             Console.WriteLine("Parsing background name...");
